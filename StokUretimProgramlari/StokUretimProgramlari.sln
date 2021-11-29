@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StokUretimProgramlari", "StokUretimProgramlari.csproj", "{69385788-04FC-41C7-A0B1-AA6CE666CE26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69385788-04FC-41C7-A0B1-AA6CE666CE26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69385788-04FC-41C7-A0B1-AA6CE666CE26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69385788-04FC-41C7-A0B1-AA6CE666CE26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69385788-04FC-41C7-A0B1-AA6CE666CE26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FF4067C-9FC4-4B56-B6E4-B51E8B02C030}
+	EndGlobalSection
+EndGlobal
