@@ -93,6 +93,16 @@ namespace StokUretimProgramlari.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apply_16x163 {
+            get {
+                object obj = ResourceManager.GetObject("apply_16x163", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boproductgroup_16x16 {
             get {
                 object obj = ResourceManager.GetObject("boproductgroup_16x16", resourceCulture);
@@ -126,6 +136,16 @@ namespace StokUretimProgramlari.Properties {
         internal static System.Drawing.Bitmap cancel_16x161 {
             get {
                 object obj = ResourceManager.GetObject("cancel_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cancel_16x162 {
+            get {
+                object obj = ResourceManager.GetObject("cancel_16x162", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

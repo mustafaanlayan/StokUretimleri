@@ -72,6 +72,12 @@
     <Compile Include="FrmMusteriSiparis.Designer.cs">
       <DependentUpon>FrmMusteriSiparis.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSiparişKaydi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSiparişKaydi.Designer.cs">
+      <DependentUpon>FrmSiparişKaydi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStokGrupKodlari.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMusteriSiparis.resx">
       <DependentUpon>FrmMusteriSiparis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSiparişKaydi.resx">
+      <DependentUpon>FrmSiparişKaydi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStokGrupKodlari.resx">
       <DependentUpon>FrmStokGrupKodlari.cs</DependentUpon>
@@ -169,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cancel_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apply_16x163.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x162.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
