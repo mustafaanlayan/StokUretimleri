@@ -129,6 +129,7 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparisListesi";
             this.Text = "FrmSiparisListesi";
+            //this.Load += new System.EventHandler(this.FrmSiparisListesi_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

@@ -553,6 +553,7 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparişKaydi";
             this.Text = "FrmSiparişKaydi";
+            //this.Load += new System.EventHandler(this.FrmSiparişKaydi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
