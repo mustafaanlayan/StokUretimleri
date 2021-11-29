@@ -40,7 +40,8 @@ namespace StokUretimProgramlari
             this.txtSiparisNo = new DevExpress.XtraEditors.TextEdit();
             this.txtMusteriKodlari = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtnStokListesi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSiparisTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtnSiparisListesi = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -52,6 +53,7 @@ namespace StokUretimProgramlari
             this.txtMiktar = new DevExpress.XtraEditors.TextEdit();
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUrunTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.txtFiyat = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtStokKodu = new DevExpress.XtraEditors.TextEdit();
@@ -71,7 +73,6 @@ namespace StokUretimProgramlari
             this.txtToplamTutar = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIlce.Properties)).BeginInit();
@@ -103,8 +104,8 @@ namespace StokUretimProgramlari
             this.groupBox1.Controls.Add(this.txtSiparisNo);
             this.groupBox1.Controls.Add(this.txtMusteriKodlari);
             this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.simpleButton2);
-            this.groupBox1.Controls.Add(this.sbtnStokListesi);
+            this.groupBox1.Controls.Add(this.btnSiparisTemizle);
+            this.groupBox1.Controls.Add(this.sbtnSiparisListesi);
             this.groupBox1.Controls.Add(this.labelControl7);
             this.groupBox1.Controls.Add(this.labelControl3);
             this.groupBox1.Controls.Add(this.labelControl4);
@@ -116,6 +117,7 @@ namespace StokUretimProgramlari
             this.groupBox1.Size = new System.Drawing.Size(776, 113);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Genel Bilgiler";
             // 
             // groupBox2
             // 
@@ -206,14 +208,24 @@ namespace StokUretimProgramlari
             this.simpleButton1.Size = new System.Drawing.Size(32, 27);
             this.simpleButton1.TabIndex = 3;
             // 
-            // sbtnStokListesi
+            // btnSiparisTemizle
             // 
-            this.sbtnStokListesi.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.listbullets_16x16;
-            this.sbtnStokListesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.sbtnStokListesi.Location = new System.Drawing.Point(219, 25);
-            this.sbtnStokListesi.Name = "sbtnStokListesi";
-            this.sbtnStokListesi.Size = new System.Drawing.Size(32, 27);
-            this.sbtnStokListesi.TabIndex = 3;
+            this.btnSiparisTemizle.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.add_16x16;
+            this.btnSiparisTemizle.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnSiparisTemizle.Location = new System.Drawing.Point(95, 0);
+            this.btnSiparisTemizle.Name = "btnSiparisTemizle";
+            this.btnSiparisTemizle.Size = new System.Drawing.Size(29, 23);
+            this.btnSiparisTemizle.TabIndex = 3;
+            // 
+            // sbtnSiparisListesi
+            // 
+            this.sbtnSiparisListesi.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.listbullets_16x16;
+            this.sbtnSiparisListesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.sbtnSiparisListesi.Location = new System.Drawing.Point(219, 25);
+            this.sbtnSiparisListesi.Name = "sbtnSiparisListesi";
+            this.sbtnSiparisListesi.Size = new System.Drawing.Size(32, 27);
+            this.sbtnSiparisListesi.TabIndex = 3;
+            this.sbtnSiparisListesi.Click += new System.EventHandler(this.sbtnSiparisListesi_Click);
             // 
             // labelControl7
             // 
@@ -297,6 +309,7 @@ namespace StokUretimProgramlari
             this.groupBox3.Controls.Add(this.txtMiktar);
             this.groupBox3.Controls.Add(this.btnSil);
             this.groupBox3.Controls.Add(this.btnKaydet);
+            this.groupBox3.Controls.Add(this.btnUrunTemizle);
             this.groupBox3.Controls.Add(this.txtFiyat);
             this.groupBox3.Controls.Add(this.labelControl10);
             this.groupBox3.Controls.Add(this.txtStokKodu);
@@ -346,6 +359,15 @@ namespace StokUretimProgramlari
             this.btnKaydet.Size = new System.Drawing.Size(96, 27);
             this.btnKaydet.TabIndex = 3;
             this.btnKaydet.Text = "Kaydet";
+            // 
+            // btnUrunTemizle
+            // 
+            this.btnUrunTemizle.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.add_16x16;
+            this.btnUrunTemizle.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnUrunTemizle.Location = new System.Drawing.Point(114, -1);
+            this.btnUrunTemizle.Name = "btnUrunTemizle";
+            this.btnUrunTemizle.Size = new System.Drawing.Size(33, 28);
+            this.btnUrunTemizle.TabIndex = 3;
             // 
             // txtFiyat
             // 
@@ -519,15 +541,6 @@ namespace StokUretimProgramlari
             this.simpleButton5.TabIndex = 3;
             this.simpleButton5.Text = "Sil";
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.add_16x16;
-            this.simpleButton2.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.simpleButton2.Location = new System.Drawing.Point(213, 63);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(32, 27);
-            this.simpleButton2.TabIndex = 3;
-            // 
             // FrmSiparişKaydi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -575,7 +588,7 @@ namespace StokUretimProgramlari
 
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit txtMusteriAdlari;
-        private DevExpress.XtraEditors.SimpleButton sbtnStokListesi;
+        private DevExpress.XtraEditors.SimpleButton sbtnSiparisListesi;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -615,6 +628,7 @@ namespace StokUretimProgramlari
         private DevExpress.XtraEditors.TextEdit txtToplamTutar;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraEditors.SimpleButton btnSiparisTemizle;
+        private DevExpress.XtraEditors.SimpleButton btnUrunTemizle;
     }
 }

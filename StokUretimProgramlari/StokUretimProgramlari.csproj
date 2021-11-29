@@ -197,5 +197,11 @@
   <ItemGroup>
     <None Include="Resources\add_16x16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chartsshowlegend_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chartsshowlegend_32x32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

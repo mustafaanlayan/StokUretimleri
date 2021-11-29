@@ -17,6 +17,10 @@ namespace StokUretimProgramlari
             InitializeComponent();
         }
 
-       
+        private void sbtnSiparisListesi_Click(object sender, EventArgs e)
+        {
+            FrmSiparisListesi frm = new FrmSiparisListesi();
+           frm.Show();
+        }
     }
 }

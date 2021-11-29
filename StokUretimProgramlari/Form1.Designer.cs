@@ -32,6 +32,7 @@ namespace StokUretimProgramlari
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSiparisKayitlari = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -45,9 +46,10 @@ namespace StokUretimProgramlari
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.barButtonItem1,
-            this.barButtonItem2});
+            this.barButtonItem2,
+            this.btnSiparisKayitlari});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 4;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2,
@@ -72,6 +74,15 @@ namespace StokUretimProgramlari
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
+            // btnSiparisKayitlari
+            // 
+            this.btnSiparisKayitlari.Caption = "Sipariş Kayıtları";
+            this.btnSiparisKayitlari.Id = 3;
+            this.btnSiparisKayitlari.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.chartsshowlegend_16x16;
+            this.btnSiparisKayitlari.ImageOptions.LargeImage = global::StokUretimProgramlari.Properties.Resources.chartsshowlegend_32x32;
+            this.btnSiparisKayitlari.Name = "btnSiparisKayitlari";
+            this.btnSiparisKayitlari.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSiparisKayitlari_ItemClick);
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -83,6 +94,7 @@ namespace StokUretimProgramlari
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSiparisKayitlari);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Kayıt İşlemleri";
             // 
@@ -121,6 +133,7 @@ namespace StokUretimProgramlari
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem btnSiparisKayitlari;
     }
 }
 
