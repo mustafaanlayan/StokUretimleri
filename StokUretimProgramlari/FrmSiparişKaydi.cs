@@ -62,5 +62,45 @@ namespace StokUretimProgramlari
 
           
         }
+
+        void siparisbilgicekeme2()
+        {
+            conn.Open();
+            DataTable dt = new DataTable();
+            SqlCommand sorgu1 = new SqlCommand("SELECT STOK_KODU,STOK_ADI,MIKTAR,FIYAT,KDV,SIPKALEM_ID FROM TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='"+txtSiparisNo.Text+"'", conn);
+            SqlDataAdapter da = new SqlDataAdapter(sorgu1);
+            da.Fill(dt);
+            gridControl1.DataSource = dt;
+            conn.Close();
+        }
+
+        string x2 = "0";
+        void mustericontrol()
+        {
+           conn.Open();
+
+            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT (*) FROM TBL_MUSTERIKAYITLARI WHERE MUSTERI_KODU='" + txtMusteriKodlari.Text + "'", conn);
+            SqlDataReader dr = sorgu1.ExecuteReader();
+            while (dr.Read())
+            {
+                x2 = dr[0].ToString();
+            }
+           conn.Close();
+        }
+
+        void mustertibilgisicekme()
+        {
+            conn.Open();
+
+            SqlCommand sorgu1 = new SqlCommand("SELECT MUSTERİ_ADI,IL,ILCE FROM TBL_MUSTERIKAYITLARI WHERE MUSTERI_KODU='"+txtMusteriKodlari.Text+"'", conn);
+            SqlDataReader dr = sorgu1.ExecuteReader();
+            while (dr.Read())
+            {
+               txtMusteriAdlari.Text= dr[0].ToString();
+               txtIl.Text = dr[1].ToString();
+               txtIlce.Text = dr[2].ToString();
+            }
+            conn.Close();
+        }
     }
 }
