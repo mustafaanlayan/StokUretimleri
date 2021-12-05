@@ -13,6 +13,7 @@ namespace StokUretimProgramlari
 {
     public partial class FrmSiparişKaydi : Form
     {
+         string sipkalem = "0";
         private SqlConnection conn =
             new SqlConnection(
                 @"Data Source = MUSTAFA\MUSTAFA; Initial Catalog = StokUretim; Integrated Security = True");
@@ -159,11 +160,25 @@ namespace StokUretimProgramlari
         {
             conn.Open();
 
-            SqlCommand sorgu1 = new SqlCommand("SELECT", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT (*) FROM TBL_SIPARISKALEMLERI WHERE SIPARIS_NO='"+txtSiparisNo.Text+ "'AND (URETUMDURUMU='A' OR URETUMDURUMU='B' OR URETUMDURUMU='S')", conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
-                txtToplamTutar.Text = dr1[0].ToString();
+                x6 = dr1[0].ToString();
+            }
+            conn.Close();
+        }
+
+        private string x5 = "0";
+        void sipariskalemleriisemrikontrol()
+        {
+            conn.Open();
+
+            SqlCommand sorgu1 = new SqlCommand("SELECT URETIMDURUMU FROM TBL_SIPARISKALEMLERI WHERE SIPKALEM_ID='"+sipkalem+"' ", conn);
+            SqlDataReader dr1 = sorgu1.ExecuteReader();
+            while (dr1.Read())
+            {
+                x5 = dr1[0].ToString();
             }
             conn.Close();
         }
