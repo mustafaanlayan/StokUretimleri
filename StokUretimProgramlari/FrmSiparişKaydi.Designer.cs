@@ -191,6 +191,7 @@ namespace StokUretimProgramlari
             this.txtSiparisNo.Name = "txtSiparisNo";
             this.txtSiparisNo.Size = new System.Drawing.Size(91, 20);
             this.txtSiparisNo.TabIndex = 2;
+            this.txtSiparisNo.Leave += new System.EventHandler(this.txtSiparisNo_Leave);
             // 
             // txtMusteriKodlari
             // 
@@ -198,6 +199,7 @@ namespace StokUretimProgramlari
             this.txtMusteriKodlari.Name = "txtMusteriKodlari";
             this.txtMusteriKodlari.Size = new System.Drawing.Size(91, 20);
             this.txtMusteriKodlari.TabIndex = 2;
+            this.txtMusteriKodlari.Leave += new System.EventHandler(this.txtMusteriKodlari_Leave);
             // 
             // simpleButton1
             // 
@@ -392,6 +394,7 @@ namespace StokUretimProgramlari
             this.txtStokKodu.Name = "txtStokKodu";
             this.txtStokKodu.Size = new System.Drawing.Size(91, 20);
             this.txtStokKodu.TabIndex = 2;
+            this.txtStokKodu.Leave += new System.EventHandler(this.txtStokKodu_Leave);
             // 
             // labelControl9
             // 
@@ -517,6 +520,7 @@ namespace StokUretimProgramlari
             // 
             // txtToplamTutar
             // 
+            this.txtToplamTutar.Enabled = false;
             this.txtToplamTutar.Location = new System.Drawing.Point(102, 19);
             this.txtToplamTutar.Name = "txtToplamTutar";
             this.txtToplamTutar.Size = new System.Drawing.Size(92, 20);
@@ -553,7 +557,7 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparişKaydi";
             this.Text = "FrmSiparişKaydi";
-            //this.Load += new System.EventHandler(this.FrmSiparişKaydi_Load);
+            this.Load += new System.EventHandler(this.FrmSiparişKaydi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

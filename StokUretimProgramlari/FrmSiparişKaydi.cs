@@ -35,7 +35,7 @@ namespace StokUretimProgramlari
         {
             conn.Open();
             SqlCommand sorgu1 =
-                new SqlCommand("SELECT COUNT (*) FROM TBL_SIPARISLER WHERE SIPIS_NO='" + txtSiparisNo.Text + "'", conn);
+                new SqlCommand("SELECT COUNT (*) FROM TBL_SIPARISLER WHERE SIPARIS_NO='" + txtSiparisNo.Text + "'", conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
@@ -49,7 +49,7 @@ namespace StokUretimProgramlari
         {
             conn.Open();
             SqlCommand sorgu2 =
-                new SqlCommand("SELECT * FROM TBL_SIPARISLER WHERE SIPIS_NO='" + txtSiparisNo.Text + "'", conn);
+                new SqlCommand("SELECT * FROM TBL_SIPARISLER WHERE SIPARIS_NO='" + txtSiparisNo.Text + "'", conn);
             SqlDataReader dr2 = sorgu2.ExecuteReader();
             while (dr2.Read())
             {
@@ -196,6 +196,73 @@ namespace StokUretimProgramlari
                txtIlce.Text = dr[2].ToString();
             }
             conn.Close();
+        }
+
+        private void txtSiparisNo_Leave(object sender, EventArgs e)
+        {
+            sipariscontrol();
+            if (Convert.ToInt16(x1)==1)
+            {
+                siparisbilgicekeme1();
+                siparisbilgicekeme2();
+                mustertibilgisicekme();
+                txtMusteriKodlari.Enabled = false;
+            }
+            else
+            {
+                if (txtSiparisNo.Text=="")
+                {
+                    txtSiparisNo.Focus();
+
+                }
+                else
+                {
+                    siparisbilgicekeme2();
+                    temizle2();
+                    txtMusteriKodlari.Enabled = true;
+                }
+            }
+        }
+
+        private void txtMusteriKodlari_Leave(object sender, EventArgs e)
+        {
+            mustericontrol();
+            if (Convert.ToInt16(x2)==1)
+            {
+                mustertibilgisicekme();
+            }
+            else
+            {
+                txtMusteriKodlari.Focus();
+            }
+        }
+
+        private void FrmSiparişKaydi_Load(object sender, EventArgs e)
+        {
+            txtStokAdi.Enabled = false;
+            txtKdv.Enabled = false;
+            txtFiyat.Enabled = false;
+            txtUrunAciklamasi.Enabled = false;
+            txtMiktar.Enabled = false;
+        }
+
+        private void txtStokKodu_Leave(object sender, EventArgs e)
+        {
+            stokkontrol();
+            if (Convert.ToInt16(x3)==1)
+            {
+                stokbilgisicekme();
+                txtUrunAciklamasi.Enabled = true;
+                //txtStokAdi.Enabled = true;
+                txtFiyat.Enabled = true;
+                txtKdv.Enabled = true;
+                txtMiktar.Enabled = true;
+                txtMiktar.Text = "0,00";
+            }
+            else
+            {
+                txtStokKodu.Focus();
+            }
         }
     }
 }
