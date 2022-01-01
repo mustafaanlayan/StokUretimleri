@@ -239,6 +239,7 @@ namespace StokUretimProgramlari
 
         private void FrmSiparişKaydi_Load(object sender, EventArgs e)
         {
+            gridView1.OptionsBehavior.Editable = false;
             txtStokAdi.Enabled = false;
             txtKdv.Enabled = false;
             txtFiyat.Enabled = false;
@@ -263,6 +264,40 @@ namespace StokUretimProgramlari
             {
                 txtStokKodu.Focus();
             }
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            if (sipkalem=="")
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand(
+                    "INSERT INTO TBL_SIPARISKALEMLERİ (SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,URUN_ACIKLAMA,FIYAT,KDV,URETIM_DURUMU)VALUES ('" +
+                    txtSiparisNo.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" +
+                    txtMiktar.Text.Replace(',', '.') + "','" + txtUrunAciklamasi.Text + "','" +
+                    txtFiyat.Text.Replace(',', '.') + "','" + txtKdv.Text.Replace(',', '.') + "'))", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+            }
+            else
+            {
+               
+            }
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow x = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            txtStokKodu.Text = x["STOK_KODU"].ToString();
+            txtStokAdi.Text = x["STOK_ADI"].ToString();
+            txtFiyat.Text = x["FİYAT"].ToString();
+            txtMiktar.Text = x["MIKTAR"].ToString();
+            txtKdv.Text = x["KDV"].ToString();
+            sipkalem = x["SIPKALEM_ID"].ToString();
+            txtStokKodu.Enabled = true;
+            txtMiktar.Enabled = true;
+            txtKdv.Enabled = true;
+            txtUrunAciklamasi.Enabled = true;
         }
     }
 }
