@@ -13,7 +13,7 @@ namespace StokUretimProgramlari
 {
     public partial class FrmSiparişKaydi : Form
     {
-         string sipkalem = "0";
+         string sipkalem = "";
         private SqlConnection conn =
             new SqlConnection(
                 @"Data Source = MUSTAFA\MUSTAFA; Initial Catalog = StokUretim; Integrated Security = True");
@@ -123,7 +123,7 @@ namespace StokUretimProgramlari
         {
             conn.Open();
 
-            SqlCommand sorgu1 = new SqlCommand("SELECT SUM(MİKTAR*FİYAT)*((KDV/100)+1) FROM TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='"+txtSiparisNo.Text+"'GROUP BY SIPARIS_NO" , conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT SUM((MIKTAR*FIYAT)*((KDV/100)+1)) FROM TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='"+txtSiparisNo.Text+"'GROUP BY SIPARIS_NO" , conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
@@ -275,13 +275,38 @@ namespace StokUretimProgramlari
                     "INSERT INTO TBL_SIPARISKALEMLERİ (SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,URUN_ACIKLAMA,FIYAT,KDV,URETIM_DURUMU)VALUES ('" +
                     txtSiparisNo.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" +
                     txtMiktar.Text.Replace(',', '.') + "','" + txtUrunAciklamasi.Text + "','" +
-                    txtFiyat.Text.Replace(',', '.') + "','" + txtKdv.Text.Replace(',', '.') + "'))", conn);
+                    txtFiyat.Text.Replace(',', '.') + "','" + txtKdv.Text.Replace(',', '.') + "','K')", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+                temizle1();
+                siparisbilgicekeme2();
+                geneltoplamhesaplama();
+            }
+            else
+            {
+               conn.Open();
+               SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISKALEMLERİ SET MIKTAR='"+txtMiktar.Text+"',URUN_ACIKLAMA='"+txtUrunAciklamasi.Text+"',FIYAT='"+txtFiyat.Text+"',KDV='"+txtKdv.Text+"' WHERE SIPKALEM_ID='"+sipkalem+"'",conn);
+               sorgu1.ExecuteNonQuery();
+               conn.Close();
+               temizle1();
+               siparisbilgicekeme2();
+               geneltoplamhesaplama();
+            }
+
+            sipariscontrol();
+            if (Convert.ToInt16(x1)==1)
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='"+txtSiparisTarihi.Text+"',TESLIM_TARIHI='"+txtTeslimTarihi.Text+"',TOPLAM_TUTAR='"+txtToplamTutar.Text.Replace(',','.')+"' WHERE SIPARIS_NO='"+txtSiparisNo.Text+"' ", conn);
                 sorgu1.ExecuteNonQuery();
                 conn.Close();
             }
             else
             {
-               
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("INSERT TBL_SIPARISLER (SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES ('"+txtSiparisNo.Text+"','"+txtMusteriKodlari.Text+"','"+txtSiparisTarihi.Text+"','"+txtTeslimTarihi.Text+"','"+txtToplamTutar.Text.Replace(',','.')+"')", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
             }
         }
 
@@ -290,7 +315,7 @@ namespace StokUretimProgramlari
             DataRow x = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             txtStokKodu.Text = x["STOK_KODU"].ToString();
             txtStokAdi.Text = x["STOK_ADI"].ToString();
-            txtFiyat.Text = x["FİYAT"].ToString();
+            txtFiyat.Text = x["FIYAT"].ToString();
             txtMiktar.Text = x["MIKTAR"].ToString();
             txtKdv.Text = x["KDV"].ToString();
             sipkalem = x["SIPKALEM_ID"].ToString();
