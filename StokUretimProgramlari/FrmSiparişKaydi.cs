@@ -107,7 +107,7 @@ namespace StokUretimProgramlari
         {
             conn.Open();
 
-            SqlCommand sorgu1 = new SqlCommand("SELECT STOK_ADI, FİYAT, KDV_ORANI FROM TBL_STOKKAYITLARI WHERE STOK_KODU='" + txtStokKodu.Text + "'", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT STOK_ADI, FIYAT, KDV_ORANI FROM TBL_STOKKAYITLARI WHERE STOK_KODU='" + txtStokKodu.Text + "'", conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
