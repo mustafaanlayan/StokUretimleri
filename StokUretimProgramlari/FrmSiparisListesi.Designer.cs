@@ -92,6 +92,7 @@ namespace StokUretimProgramlari
             this.txtSiparisNo.Name = "txtSiparisNo";
             this.txtSiparisNo.Size = new System.Drawing.Size(141, 20);
             this.txtSiparisNo.TabIndex = 2;
+            this.txtSiparisNo.TextChanged += new System.EventHandler(this.txtSiparisNo_TextChanged);
             // 
             // labelControl1
             // 
@@ -119,6 +120,7 @@ namespace StokUretimProgramlari
             this.txtMusteriAdi.Name = "txtMusteriAdi";
             this.txtMusteriAdi.Size = new System.Drawing.Size(141, 20);
             this.txtMusteriAdi.TabIndex = 3;
+            this.txtMusteriAdi.TextChanged += new System.EventHandler(this.txtMusteriAdi_TextChanged);
             // 
             // FrmSiparisListesi
             // 
@@ -129,7 +131,7 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparisListesi";
             this.Text = "FrmSiparisListesi";
-            //this.Load += new System.EventHandler(this.FrmSiparisListesi_Load);
+            this.Load += new System.EventHandler(this.FrmSiparisListesi_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

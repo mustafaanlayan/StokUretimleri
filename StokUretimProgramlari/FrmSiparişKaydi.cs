@@ -132,6 +132,21 @@ namespace StokUretimProgramlari
             conn.Close();
         }
 
+        private string x4 = "0";
+
+        void kalemsayma()
+        {
+            conn.Open();
+
+            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT(*) FROM TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='"+txtSiparisNo.Text+"' ", conn);
+            SqlDataReader dr1 = sorgu1.ExecuteReader();
+            while (dr1.Read())
+            {
+                x4= dr1[0].ToString();
+            }
+            conn.Close();
+        }
+
         void temizle1()
         {
             txtStokKodu.Text = "";
@@ -160,7 +175,7 @@ namespace StokUretimProgramlari
         {
             conn.Open();
 
-            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT (*) FROM TBL_SIPARISKALEMLERI WHERE SIPARIS_NO='"+txtSiparisNo.Text+ "'AND (URETUMDURUMU='A' OR URETUMDURUMU='B' OR URETUMDURUMU='S')", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT (*) FROM TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='"+txtSiparisNo.Text+ "'AND (URETIM_DURUMU='A' OR URETIM_DURUMU='B' OR URETIM_DURUMU='S')", conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
@@ -174,11 +189,11 @@ namespace StokUretimProgramlari
         {
             conn.Open();
 
-            SqlCommand sorgu1 = new SqlCommand("SELECT URETIMDURUMU FROM TBL_SIPARISKALEMLERI WHERE SIPKALEM_ID='"+sipkalem+"' ", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT URETIM_DURUMU FROM TBL_SIPARISKALEMLERİ WHERE SIPKALEM_ID='"+sipkalem+"' ", conn);
             SqlDataReader dr1 = sorgu1.ExecuteReader();
             while (dr1.Read())
             {
-                x5 = dr1[0].ToString();
+                x5 = (dr1[0].ToString()).Trim();
             }
             conn.Close();
         }
@@ -200,6 +215,10 @@ namespace StokUretimProgramlari
 
         private void txtSiparisNo_Leave(object sender, EventArgs e)
         {
+            txtMusteriAdlari.Enabled = false;
+            txtIl.Enabled = false;
+            txtIlce.Enabled = false;
+            txtStokKodu.Enabled = true;
             sipariscontrol();
             if (Convert.ToInt16(x1)==1)
             {
@@ -323,6 +342,100 @@ namespace StokUretimProgramlari
             txtMiktar.Enabled = true;
             txtKdv.Enabled = true;
             txtUrunAciklamasi.Enabled = true;
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+           
+            sipariskalemleriisemrikontrol();
+            if (x5=="K")
+            {
+                
+                conn.Open();
+                SqlCommand sorgu1 =
+                    new SqlCommand("DELETE TBL_SIPARISKALEMLERİ WHERE SIPKALEM_ID='" + sipkalem + "'",conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+                temizle1();
+                siparisbilgicekeme2();
+                sipkalem = "";
+                txtStokKodu.Enabled = true;
+                kalemsayma();
+                if (Convert.ToInt16(x4)==0)
+                {
+                    txtToplamTutar.Text = "0,00";
+                }
+                else
+                {
+                    geneltoplamhesaplama();
+                }
+                conn.Open();
+                SqlCommand sorgu2 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNo.Text + "' ", conn);
+                sorgu2.ExecuteNonQuery();
+                conn.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Bu Sipariş Kalemine Ait İş Emri Bulunmaktadır");
+            }
+           
+        }
+
+        private void btnSiparisSil_Click(object sender, EventArgs e)
+        {
+            sipgenelisemrikontrol();
+            if (Convert.ToInt16(x6)==0)
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("DELETE TBL_SIPARISLER WHERE SIPARIS_NO='"+txtSiparisNo.Text+"'", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+                conn.Open();
+                SqlCommand sorgu2 = new SqlCommand("DELETE TBL_SIPARISKALEMLERİ WHERE SIPARIS_NO='" + txtSiparisNo.Text + "'", conn);
+                sorgu2.ExecuteNonQuery();
+                conn.Close();
+                temizle2();
+                txtSiparisNo.Text = "";
+                siparisbilgicekeme2();
+            }
+            else
+            {
+                MessageBox.Show("Bu Siparişe Ait İş Emri Kaydı veya Kayıtları Bulunmaktadır "); 
+            }
+
+        }
+
+        private void btnSiparisKaydet_Click(object sender, EventArgs e)
+        {
+            sipariscontrol();
+            if (Convert.ToInt16(x1) == 1)
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISLER SET SIPARIS_TARIHI='" + txtSiparisTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',TOPLAM_TUTAR='" + txtToplamTutar.Text.Replace(',', '.') + "' WHERE SIPARIS_NO='" + txtSiparisNo.Text + "' ", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+            }
+            else
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("INSERT TBL_SIPARISLER (SIPARIS_NO,MUSTERI_KODU,SIPARIS_TARIHI,TESLIM_TARIHI,TOPLAM_TUTAR) VALUES ('" + txtSiparisNo.Text + "','" + txtMusteriKodlari.Text + "','" + txtSiparisTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtToplamTutar.Text.Replace(',', '.') + "')", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+            }
+            siparisbilgicekeme1();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FrmMusteriLİstesi frm = new FrmMusteriLİstesi();
+            frm.Show();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            FrmStokListesi frm = new FrmStokListesi();
+            frm.Show();
         }
     }
 }

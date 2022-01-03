@@ -72,7 +72,8 @@ namespace StokUretimProgramlari
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtToplamTutar = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSiparisSil = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSiparisKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIlce.Properties)).BeginInit();
@@ -209,6 +210,7 @@ namespace StokUretimProgramlari
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(32, 27);
             this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnSiparisTemizle
             // 
@@ -352,6 +354,7 @@ namespace StokUretimProgramlari
             this.btnSil.Size = new System.Drawing.Size(96, 27);
             this.btnSil.TabIndex = 3;
             this.btnSil.Text = "Sil";
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnKaydet
             // 
@@ -432,6 +435,7 @@ namespace StokUretimProgramlari
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(32, 27);
             this.simpleButton3.TabIndex = 3;
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // labelControl11
             // 
@@ -538,23 +542,35 @@ namespace StokUretimProgramlari
             this.labelControl13.TabIndex = 0;
             this.labelControl13.Text = "Toplam Tutar :";
             // 
-            // simpleButton5
+            // btnSiparisSil
             // 
-            this.simpleButton5.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.cancel_16x162;
-            this.simpleButton5.Location = new System.Drawing.Point(681, 446);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(96, 27);
-            this.simpleButton5.TabIndex = 3;
-            this.simpleButton5.Text = "Sil";
+            this.btnSiparisSil.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.cancel_16x162;
+            this.btnSiparisSil.Location = new System.Drawing.Point(681, 446);
+            this.btnSiparisSil.Name = "btnSiparisSil";
+            this.btnSiparisSil.Size = new System.Drawing.Size(96, 27);
+            this.btnSiparisSil.TabIndex = 3;
+            this.btnSiparisSil.Text = "Sipariş Sil";
+            this.btnSiparisSil.Click += new System.EventHandler(this.btnSiparisSil_Click);
+            // 
+            // btnSiparisKaydet
+            // 
+            this.btnSiparisKaydet.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.save_16x162;
+            this.btnSiparisKaydet.Location = new System.Drawing.Point(562, 448);
+            this.btnSiparisKaydet.Name = "btnSiparisKaydet";
+            this.btnSiparisKaydet.Size = new System.Drawing.Size(100, 23);
+            this.btnSiparisKaydet.TabIndex = 7;
+            this.btnSiparisKaydet.Text = "Sipariş Kaydet";
+            this.btnSiparisKaydet.Click += new System.EventHandler(this.btnSiparisKaydet_Click);
             // 
             // FrmSiparişKaydi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 498);
+            this.Controls.Add(this.btnSiparisKaydet);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.simpleButton5);
+            this.Controls.Add(this.btnSiparisSil);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparişKaydi";
@@ -634,8 +650,9 @@ namespace StokUretimProgramlari
         private System.Windows.Forms.GroupBox groupBox6;
         private DevExpress.XtraEditors.TextEdit txtToplamTutar;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.SimpleButton simpleButton5;
+        private DevExpress.XtraEditors.SimpleButton btnSiparisSil;
         private DevExpress.XtraEditors.SimpleButton btnSiparisTemizle;
         private DevExpress.XtraEditors.SimpleButton btnUrunTemizle;
+        private DevExpress.XtraEditors.SimpleButton btnSiparisKaydet;
     }
 }
