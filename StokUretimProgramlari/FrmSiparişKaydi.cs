@@ -285,7 +285,7 @@ namespace StokUretimProgramlari
             else
             {
                conn.Open();
-               SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISKALEMLERİ SET MIKTAR='"+txtMiktar.Text+"',URUN_ACIKLAMA='"+txtUrunAciklamasi.Text+"',FIYAT='"+txtFiyat.Text+"',KDV='"+txtKdv.Text+"' WHERE SIPKALEM_ID='"+sipkalem+"'",conn);
+               SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_SIPARISKALEMLERİ SET MIKTAR='"+ txtMiktar.Text.Replace(',','.')+"',URUN_ACIKLAMA='"+txtUrunAciklamasi.Text+"',FIYAT='"+txtFiyat.Text.Replace(',','.')+"',KDV='"+txtKdv.Text.Replace(',','.')+"' WHERE SIPKALEM_ID='"+sipkalem+"'",conn);
                sorgu1.ExecuteNonQuery();
                conn.Close();
                temizle1();
