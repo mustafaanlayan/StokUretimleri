@@ -11,20 +11,22 @@ using System.Data.SqlClient;
 
 namespace StokUretimProgramlari
 {
-    public partial class FrmSiparişKaydi : Form
+    public partial class FrmSiparisKaydi : Form
     {
+        public static string siparisx;
          string sipkalem = "";
         private SqlConnection conn =
             new SqlConnection(
                 @"Data Source = MUSTAFA\MUSTAFA; Initial Catalog = StokUretim; Integrated Security = True");
 
-        public FrmSiparişKaydi()
+        public FrmSiparisKaydi()
         {
             InitializeComponent();
         }
 
         private void sbtnSiparisListesi_Click(object sender, EventArgs e)
         {
+            FrmSiparisListesi.siparisno = "sipariskayıt";
             FrmSiparisListesi frm = new FrmSiparisListesi();
             frm.Show();
         }
@@ -428,14 +430,68 @@ namespace StokUretimProgramlari
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            FrmMusteriLİstesi.musterikodu = "sipariskayıt";
             FrmMusteriLİstesi frm = new FrmMusteriLİstesi();
             frm.Show();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+            FrmStokListesi.stokkodu = "sipariskayıt";
             FrmStokListesi frm = new FrmStokListesi();
             frm.Show();
+        }
+
+        private void FrmSiparisKaydi_Activated(object sender, EventArgs e)
+        {
+            if (siparisx=="siparis")
+            {
+                if (FrmSiparisListesi.siparisno == "")
+                {
+
+                }
+                else
+                {
+                    txtSiparisNo.Text = FrmSiparisListesi.siparisno;
+                    siparisbilgicekeme1();
+                    siparisbilgicekeme2();
+                    mustertibilgisicekme();
+                }
+            }
+
+            if (siparisx=="musteri")
+            {
+                if (FrmMusteriLİstesi.musterikodu == "")
+                {
+
+                }
+                else
+                {
+                    txtMusteriKodlari.Text = FrmMusteriLİstesi.musterikodu;
+                    mustertibilgisicekme();
+                }
+            }
+
+            if (siparisx=="stok")
+            {
+                if (FrmStokListesi.stokkodu=="")
+                {
+                    
+                }
+                else
+                {
+                    txtStokKodu.Text = FrmStokListesi.stokkodu;
+                    stokbilgisicekme();
+                }
+            }
+            
+        }
+
+        private void FrmSiparisKaydi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            siparisx = "";
+            FrmMusteriLİstesi.musterikodu = "";
+            FrmSiparisListesi.siparisno = "";
         }
     }
 }

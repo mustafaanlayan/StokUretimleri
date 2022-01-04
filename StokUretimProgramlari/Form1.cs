@@ -31,7 +31,7 @@ namespace StokUretimProgramlari
 
         private void btnSiparisKayitlari_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            FrmSiparişKaydi frm = new FrmSiparişKaydi();
+            FrmSiparisKaydi frm = new FrmSiparisKaydi();
             frm.Show();
         }
     }

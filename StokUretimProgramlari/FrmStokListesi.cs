@@ -64,9 +64,14 @@ namespace StokUretimProgramlari
                 FrmStokKayitlari frm=new FrmStokKayitlari();
                 frm.Activate();
             }
-            else
+
+            if (stokkodu=="sipariskayıt")
             {
-                
+                stokkodu = satir["STOK_KODU"].ToString();
+                FrmSiparisKaydi.siparisx = "stok";
+                this.Hide();
+                FrmSiparisKaydi frm = new FrmSiparisKaydi();
+                frm.Activate();
             }
         }
 

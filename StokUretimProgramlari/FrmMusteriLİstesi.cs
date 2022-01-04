@@ -71,7 +71,14 @@ namespace StokUretimProgramlari
             }
             else
             {
-                
+                if (musterikodu=="sipariskayıt")
+                {
+                    musterikodu = x["MUSTERI_KODU"].ToString();
+                    FrmSiparisKaydi.siparisx = "musteri";
+                    this.Hide();
+                    FrmSiparisKaydi frm = new FrmSiparisKaydi();
+                    frm.Activate();
+                }
             }
         }
 

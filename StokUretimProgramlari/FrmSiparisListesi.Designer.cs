@@ -71,6 +71,7 @@ namespace StokUretimProgramlari
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // groupBox1
             // 
@@ -131,6 +132,7 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmSiparisListesi";
             this.Text = "FrmSiparisListesi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSiparisListesi_FormClosed);
             this.Load += new System.EventHandler(this.FrmSiparisListesi_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

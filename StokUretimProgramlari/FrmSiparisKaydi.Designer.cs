@@ -1,7 +1,7 @@
 ﻿
 namespace StokUretimProgramlari
 {
-    partial class FrmSiparişKaydi
+    partial class FrmSiparisKaydi
     {
         /// <summary>
         /// Required designer variable.
@@ -562,7 +562,7 @@ namespace StokUretimProgramlari
             this.btnSiparisKaydet.Text = "Sipariş Kaydet";
             this.btnSiparisKaydet.Click += new System.EventHandler(this.btnSiparisKaydet_Click);
             // 
-            // FrmSiparişKaydi
+            // FrmSiparisKaydi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -573,8 +573,10 @@ namespace StokUretimProgramlari
             this.Controls.Add(this.btnSiparisSil);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
-            this.Name = "FrmSiparişKaydi";
+            this.Name = "FrmSiparisKaydi";
             this.Text = "FrmSiparişKaydi";
+            this.Activated += new System.EventHandler(this.FrmSiparisKaydi_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSiparisKaydi_FormClosed);
             this.Load += new System.EventHandler(this.FrmSiparişKaydi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
