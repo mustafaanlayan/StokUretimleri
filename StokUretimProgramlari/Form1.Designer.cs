@@ -33,10 +33,13 @@ namespace StokUretimProgramlari
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnSiparisKayitlari = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,9 +50,10 @@ namespace StokUretimProgramlari
             this.ribbonControl1.ExpandCollapseItem,
             this.barButtonItem1,
             this.barButtonItem2,
-            this.btnSiparisKayitlari});
+            this.btnSiparisKayitlari,
+            this.barButtonItem3});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2,
@@ -83,10 +87,20 @@ namespace StokUretimProgramlari
             this.btnSiparisKayitlari.Name = "btnSiparisKayitlari";
             this.btnSiparisKayitlari.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSiparisKayitlari_ItemClick);
             // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "İş Emri Girişi";
+            this.barButtonItem3.Id = 4;
+            this.barButtonItem3.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.bodepartment_16x16;
+            this.barButtonItem3.ImageOptions.LargeImage = global::StokUretimProgramlari.Properties.Resources.bodepartment_32x32;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Yönetim";
             // 
@@ -97,6 +111,12 @@ namespace StokUretimProgramlari
             this.ribbonPageGroup2.ItemLinks.Add(this.btnSiparisKayitlari);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Kayıt İşlemleri";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            this.ribbonPageGroup3.Text = "Üretim İşlemleri";
             // 
             // ribbonPage1
             // 
@@ -109,6 +129,11 @@ namespace StokUretimProgramlari
             // 
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // ribbonPage4
+            // 
+            this.ribbonPage4.Name = "ribbonPage4";
+            this.ribbonPage4.Text = "ribbonPage4";
             // 
             // Form1
             // 
@@ -134,6 +159,9 @@ namespace StokUretimProgramlari
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btnSiparisKayitlari;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage4;
     }
 }
 

@@ -60,6 +60,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIsEmri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIsEmri.Designer.cs">
+      <DependentUpon>FrmIsEmri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIsEmriListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIsEmriListesi.Designer.cs">
+      <DependentUpon>FrmIsEmriListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIsEmriSiparisleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIsEmriSiparisleri.Designer.cs">
+      <DependentUpon>FrmIsEmriSiparisleri.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMusteriLİstesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +124,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIsEmri.resx">
+      <DependentUpon>FrmIsEmri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIsEmriListesi.resx">
+      <DependentUpon>FrmIsEmriListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIsEmriSiparisleri.resx">
+      <DependentUpon>FrmIsEmriSiparisleri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMusteriLİstesi.resx">
       <DependentUpon>FrmMusteriLİstesi.cs</DependentUpon>
@@ -211,6 +238,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodepartment_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodepartment_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,5 +34,11 @@ namespace StokUretimProgramlari
             FrmSiparisKaydi frm = new FrmSiparisKaydi();
             frm.Show();
         }
+
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            FrmIsEmri frm = new FrmIsEmri();
+            frm.Show();
+        }
     }
 }

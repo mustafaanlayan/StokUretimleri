@@ -329,6 +329,10 @@ namespace StokUretimProgramlari
                 sorgu1.ExecuteNonQuery();
                 conn.Close();
             }
+            siparisbilgicekeme1();
+            temizle2();
+            txtSiparisNo.Text = "";
+            siparisbilgicekeme2();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
