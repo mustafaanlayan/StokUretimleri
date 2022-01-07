@@ -21,7 +21,7 @@ namespace StokUretimProgramlari
         void isemricontrol()
         {
             conn.Open();
-            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT(*) FROM TBL_ISEMRI WHERE ISEMRI_NO='"+txtIsEmriNo.Text+"'",conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT COUNT(*) FROM TBL_ISEMRI WHERE ISEMRİ_NO='"+txtIsEmriNo.Text+"'",conn);
             SqlDataReader dr=sorgu1.ExecuteReader();
             while (dr.Read())
             {
@@ -33,7 +33,7 @@ namespace StokUretimProgramlari
         void isemribilgisicekme()
         {
             conn.Open();
-            SqlCommand sorgu1 = new SqlCommand("SELECT * FROM TBL_ISEMRI WHERE ISEMRI_NO='" + txtIsEmriNo.Text + "'", conn);
+            SqlCommand sorgu1 = new SqlCommand("SELECT * FROM TBL_ISEMRI WHERE ISEMRİ_NO='" + txtIsEmriNo.Text + "'", conn);
             SqlDataReader dr = sorgu1.ExecuteReader();
             while (dr.Read())
             {
@@ -109,6 +109,45 @@ namespace StokUretimProgramlari
             conn.Close();
         }
 
+        void isemrilistesinicekme()
+        {
+            conn.Open();
+            DataTable dt = new DataTable();
+            SqlCommand sorgu1=new SqlCommand("SELECT ISEMRİ_NO,STOK_KODU,STOK_ADI,SIPARIS_NO,MIKTAR,DURUM FROM TBL_ISEMRI",conn);
+            SqlDataAdapter da= new SqlDataAdapter(sorgu1);
+            da.Fill(dt);
+            gridControl1.DataSource=dt;
+            conn.Close();
+        }
+
+        void siparisnovemiktaraulasma()
+        {
+            conn.Open();
+            SqlCommand sorgu1 = new SqlCommand("SELECT SIPARIS_NO,MIKTAR FROM TBL_SIPARISKALEMLERİ WHERE SIPKALEM_ID='"+txtKalemId.Text+"'", conn);
+            SqlDataReader dr=sorgu1.ExecuteReader();
+            while (dr.Read())
+            {
+                txtSiparisNo.Text = dr[0].ToString();
+                txtMiktar.Text = dr[1].ToString();
+            }
+            conn.Close();
+        }
+
+        void temizle()
+        {
+            txtIsEmriAciklama.Text = "";
+            txtIsEmriTarihi.Text = "";
+            txtKalemId.Text = "";
+            txtMiktar.Text = "";
+            txtSiparisNo.Text = "";
+            txtStokAdi.Text = "";
+            txtTeslimTarihi.Text = "";
+            txtStokKodu.Enabled = true;
+            txtMiktar.Enabled = true;
+            txtSiparisNo.Enabled = true;
+            rbYeni.Checked=true;
+        }
+
         private void sbtnIsEmriListesi_Click(object sender, EventArgs e)
         {
             FrmIsEmriListesi frm = new FrmIsEmriListesi();
@@ -123,7 +162,52 @@ namespace StokUretimProgramlari
 
         private void FrmIsEmri_Load(object sender, EventArgs e)
         {
+            gridView1.OptionsBehavior.Editable=false;
+            isemrilistesinicekme();
+        }
 
+        private void txtIsEmriNo_Leave(object sender, EventArgs e)
+        {
+            if (txtIsEmriNo.Text=="")
+            {
+                txtIsEmriNo.Focus();
+            }
+            isemricontrol();
+            if (Convert.ToInt16(x1)==1)
+            {
+                isemribilgisicekme();
+            }
+            else
+            {
+                temizle();
+            }
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr=gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            txtIsEmriNo.Text = dr["ISEMRİ_NO"].ToString();
+            isemribilgisicekme();
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            isemricontrol();
+            if (Convert.ToInt16(x1)==1)
+            {
+                conn.Open();
+                SqlCommand sorgu1 = new SqlCommand("DELETE TBL_ISEMRI  WHERE ISEMRİ_NO='" + txtIsEmriNo.Text + "'", conn);
+                sorgu1.ExecuteNonQuery();
+                conn.Close();
+                sipariskalemikapatma();
+                temizle();
+                txtIsEmriNo.Text = "";
+                isemrilistesinicekme();
+            }
+            else
+            {
+                MessageBox.Show("Böyle Bir İş Emri Kaydı Bulunmamaktadır");
+            }
         }
     }
 }

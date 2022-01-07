@@ -120,6 +120,7 @@ namespace StokUretimProgramlari
             this.btnSil.Size = new System.Drawing.Size(96, 27);
             this.btnSil.TabIndex = 6;
             this.btnSil.Text = "Sil";
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnKaydet
             // 
@@ -169,6 +170,7 @@ namespace StokUretimProgramlari
             this.txtIsEmriNo.Name = "txtIsEmriNo";
             this.txtIsEmriNo.Size = new System.Drawing.Size(91, 20);
             this.txtIsEmriNo.TabIndex = 2;
+            this.txtIsEmriNo.Leave += new System.EventHandler(this.txtIsEmriNo_Leave);
             // 
             // btnSiparisTemizle
             // 
@@ -416,6 +418,7 @@ namespace StokUretimProgramlari
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // FrmIsEmri
             // 
