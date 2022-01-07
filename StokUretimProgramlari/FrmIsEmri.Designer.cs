@@ -318,6 +318,7 @@ namespace StokUretimProgramlari
             // 
             // txtKalemId
             // 
+            this.txtKalemId.Enabled = false;
             this.txtKalemId.Location = new System.Drawing.Point(135, 189);
             this.txtKalemId.Name = "txtKalemId";
             this.txtKalemId.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -381,6 +382,7 @@ namespace StokUretimProgramlari
             // 
             // txtStokAdi
             // 
+            this.txtStokAdi.Enabled = false;
             this.txtStokAdi.Location = new System.Drawing.Point(390, 76);
             this.txtStokAdi.Name = "txtStokAdi";
             this.txtStokAdi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
