@@ -150,6 +150,7 @@ namespace StokUretimProgramlari
 
         private void sbtnIsEmriListesi_Click(object sender, EventArgs e)
         {
+            FrmIsEmriListesi.isemrino = "isemrikayıt";
             FrmIsEmriListesi frm = new FrmIsEmriListesi();
             frm.Show();
         }
@@ -233,7 +234,7 @@ namespace StokUretimProgramlari
                 else
                 {
                     conn.Open();
-                    SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_ISEMRI SET ISEMRI_ACIKLAMA='" + txtIsEmriAciklama.Text + "',ISEMRI_TARIHI='" + txtIsEmriTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',DURUM='E' WHERE ISEMRİ_NO='" + txtIsEmriNo.Text + "' ,", conn);
+                    SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_ISEMRI SET ISEMRI_ACIKLAMASI='" + txtIsEmriAciklama.Text + "',ISEMRI_TARIHI='" + txtIsEmriTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',DURUM='E' WHERE ISEMRİ_NO='" + txtIsEmriNo.Text + "' ", conn);
                     sorgu1.ExecuteNonQuery();
                     conn.Close();
                     sipariskalemibitirme();
@@ -249,23 +250,23 @@ namespace StokUretimProgramlari
                 if (rbYeni.Checked==true)
                 {
                     conn.Open();
-                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMA,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('"+txtIsEmriNo.Text+"','"+txtStokKodu.Text+"','"+txtStokAdi.Text+"','"+txtIsEmriAciklama.Text+"','"+txtIsEmriTarihi.Text+"','"+txtTeslimTarihi.Text+"','"+txtSiparisNo.Text+"','"+txtMiktar.Text.Replace(',','.')+"','"+txtKalemId.Text+"','Y') ",conn);
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMASI,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('"+txtIsEmriNo.Text+"','"+txtStokKodu.Text+"','"+txtStokAdi.Text+"','"+txtIsEmriAciklama.Text+"','"+txtIsEmriTarihi.Text+"','"+txtTeslimTarihi.Text+"','"+txtSiparisNo.Text+"','"+txtMiktar.Text.Replace(',','.')+"','"+txtKalemId.Text+"','Y') ",conn);
                     sorgu1.ExecuteNonQuery();
                     conn.Close();
                     sipariskalemiacma();
                     temizle();
-                    txtSiparisNo.Text = "";
+                    txtIsEmriNo.Text = "";
                     isemrilistesinicekme();
                 }
                 else
                 {
                     conn.Open();
-                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMA,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('" + txtIsEmriNo.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" + txtIsEmriAciklama.Text + "','" + txtIsEmriTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtSiparisNo.Text + "','" + txtMiktar.Text.Replace(',', '.') + "','" + txtKalemId.Text + "','E') ", conn);
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMASI,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('" + txtIsEmriNo.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" + txtIsEmriAciklama.Text + "','" + txtIsEmriTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtSiparisNo.Text + "','" + txtMiktar.Text.Replace(',', '.') + "','" + txtKalemId.Text + "','E') ", conn);
                     sorgu1.ExecuteNonQuery();
                     conn.Close();
                     sipariskalemibitirme();
                     temizle();
-                    txtSiparisNo.Text = "";
+                    txtIsEmriNo.Text = "";
                     isemrilistesinicekme();
                 }
             }
@@ -273,6 +274,18 @@ namespace StokUretimProgramlari
 
         private void FrmIsEmri_Activated(object sender, EventArgs e)
         {
+            if (isemrix=="isemri")
+            {
+                txtIsEmriNo.Text = FrmIsEmriListesi.isemrino;
+                isemribilgisicekme();
+                isemrix = "";
+            }
+            if (isemrix == "stok")
+            {
+                txtStokKodu.Text = FrmStokListesi.stokkodu;
+                stokbilgisicekme();
+                isemrix = "";
+            }
             if (isemrix=="siparis")
             {
                 txtKalemId.Text = FrmIsEmriSiparisleri.kalemid;
@@ -284,8 +297,48 @@ namespace StokUretimProgramlari
                 {
                     siparisnovemiktaraulasma();
                     txtMiktar.Enabled = false;
+                    isemrix = "";
                 }
             }
+        }
+
+        private void txtStokKodu_Leave(object sender, EventArgs e)
+        {
+            stokkartıkontrol();
+            if (Convert.ToInt16(x2)==1)
+            {
+                stokbilgisicekme();
+                txtSiparisNo.Text = "";
+                txtMiktar.Text = "";
+                txtKalemId.Text = "";
+                txtStokAdi.Enabled = false;
+                
+            }
+            else
+            {
+                txtStokKodu.Focus();
+            }
+        }
+
+        private void FrmIsEmri_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmIsEmriSiparisleri.kalemid = "";
+            isemrix = "";
+            FrmStokListesi.stokkodu = "";
+            FrmIsEmriListesi.isemrino = "";
+        }
+
+        private void btnSiparisTemizle_Click(object sender, EventArgs e)
+        {
+            temizle();
+            txtIsEmriNo.Text = "";
+        }
+
+        private void btnStokListesi_Click(object sender, EventArgs e)
+        {
+            FrmStokListesi.stokkodu = "isemri";
+            FrmStokListesi frm=new FrmStokListesi();
+            frm.Show();
         }
     }
 }

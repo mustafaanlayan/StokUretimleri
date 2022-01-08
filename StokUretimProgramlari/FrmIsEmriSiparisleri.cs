@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace StokUretimProgramlari
 {
@@ -22,24 +16,29 @@ namespace StokUretimProgramlari
 
         private void FrmIsEmriSiparisleri_Load(object sender, EventArgs e)
         {
-            gridView1.OptionsBehavior.Editable=false;
+            gridView1.OptionsBehavior.Editable = false;
             conn.Open();
-            DataTable dt=new DataTable();
-            SqlCommand sorgu1=new SqlCommand("SELECT SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,SIPKALEM_ID FROM TBL_SIPARISKALEMLERİ WHERE STOK_KODU='"+FrmIsEmri.stokkodu+"' AND URETIM_DURUMU='K'",conn);
-            SqlDataAdapter da=new SqlDataAdapter(sorgu1);
+            DataTable dt = new DataTable();
+            SqlCommand sorgu1 = new SqlCommand("SELECT SIPARIS_NO,STOK_KODU,STOK_ADI,MIKTAR,SIPKALEM_ID FROM TBL_SIPARISKALEMLERİ WHERE STOK_KODU='" + FrmIsEmri.stokkodu + "' AND URETIM_DURUMU='K'", conn);
+            SqlDataAdapter da = new SqlDataAdapter(sorgu1);
             da.Fill(dt);
             gridControl1.DataSource = dt;
-            conn.Close();  
+            conn.Close();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            DataRow x=gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            DataRow x = gridView1.GetDataRow(gridView1.FocusedRowHandle);
             kalemid = x["SIPKALEM_ID"].ToString();
             FrmIsEmri.isemrix = "siparis";
             this.Hide();
-            FrmIsEmri frm=new FrmIsEmri();
+            FrmIsEmri frm = new FrmIsEmri();
             frm.Activate();
+        }
+
+        private void FrmIsEmriSiparisleri_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            kalemid = "";
         }
     }
 }

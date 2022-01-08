@@ -75,6 +75,7 @@ namespace StokUretimProgramlari
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIsEmriSiparisleri";
             this.Text = "İş Emrine Uygun Sipariş Listesi";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIsEmriSiparisleri_FormClosed);
             this.Load += new System.EventHandler(this.FrmIsEmriSiparisleri_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

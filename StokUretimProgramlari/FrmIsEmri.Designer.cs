@@ -181,6 +181,7 @@ namespace StokUretimProgramlari
             this.btnSiparisTemizle.Name = "btnSiparisTemizle";
             this.btnSiparisTemizle.Size = new System.Drawing.Size(29, 23);
             this.btnSiparisTemizle.TabIndex = 3;
+            this.btnSiparisTemizle.Click += new System.EventHandler(this.btnSiparisTemizle_Click);
             // 
             // btnSiparisListesi
             // 
@@ -200,6 +201,7 @@ namespace StokUretimProgramlari
             this.btnStokListesi.Name = "btnStokListesi";
             this.btnStokListesi.Size = new System.Drawing.Size(32, 27);
             this.btnStokListesi.TabIndex = 3;
+            this.btnStokListesi.Click += new System.EventHandler(this.btnStokListesi_Click);
             // 
             // sbtnIsEmriListesi
             // 
@@ -364,6 +366,7 @@ namespace StokUretimProgramlari
             this.txtStokKodu.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtStokKodu.Size = new System.Drawing.Size(89, 20);
             this.txtStokKodu.TabIndex = 4;
+            this.txtStokKodu.Leave += new System.EventHandler(this.txtStokKodu_Leave);
             // 
             // txtIsEmriAciklama
             // 
@@ -433,6 +436,7 @@ namespace StokUretimProgramlari
             this.Name = "FrmIsEmri";
             this.Text = "İş Emri Girişi";
             this.Activated += new System.EventHandler(this.FrmIsEmri_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmIsEmri_FormClosed);
             this.Load += new System.EventHandler(this.FrmIsEmri_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

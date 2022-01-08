@@ -73,6 +73,14 @@ namespace StokUretimProgramlari
                 FrmSiparisKaydi frm = new FrmSiparisKaydi();
                 frm.Activate();
             }
+            if (stokkodu=="isemri")
+            {
+                stokkodu = satir["STOK_KODU"].ToString();
+                FrmIsEmri.isemrix = "stok";
+                this.Hide();
+                FrmIsEmri frm=new FrmIsEmri();  
+                frm.Activate();
+            }
         }
 
         private void FrmStokListesi_FormClosed(object sender, FormClosedEventArgs e)
