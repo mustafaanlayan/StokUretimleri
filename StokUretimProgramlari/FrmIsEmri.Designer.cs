@@ -130,6 +130,7 @@ namespace StokUretimProgramlari
             this.btnKaydet.Size = new System.Drawing.Size(96, 27);
             this.btnKaydet.TabIndex = 7;
             this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // groupBox2
             // 
@@ -431,6 +432,7 @@ namespace StokUretimProgramlari
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmIsEmri";
             this.Text = "İş Emri Girişi";
+            this.Activated += new System.EventHandler(this.FrmIsEmri_Activated);
             this.Load += new System.EventHandler(this.FrmIsEmri_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

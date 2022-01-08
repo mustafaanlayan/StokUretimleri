@@ -154,8 +154,11 @@ namespace StokUretimProgramlari
             frm.Show();
         }
 
+        public static string stokkodu;
+        public static string isemrix;
         private void btnSiparisListesi_Click(object sender, EventArgs e)
         {
+            stokkodu = txtStokKodu.Text;
             FrmIsEmriSiparisleri frm = new FrmIsEmriSiparisleri();
             frm.Show();
         }
@@ -207,6 +210,81 @@ namespace StokUretimProgramlari
             else
             {
                 MessageBox.Show("Böyle Bir İş Emri Kaydı Bulunmamaktadır");
+            }
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            isemricontrol();
+            if (Convert.ToInt16(x1)==1)
+            {
+                if (rbYeni.Checked==true)
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_ISEMRI SET ISEMRI_ACIKLAMA='" + txtIsEmriAciklama.Text + "',ISEMRI_TARIHI='" + txtIsEmriTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',DURUM='Y' WHERE ISEMRİ_NO='"+txtIsEmriNo.Text+"' ,", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    sipariskalemiacma();
+                    temizle();
+                    txtIsEmriNo.Text = "";
+                    isemrilistesinicekme();
+
+                }
+                else
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("UPDATE TBL_ISEMRI SET ISEMRI_ACIKLAMA='" + txtIsEmriAciklama.Text + "',ISEMRI_TARIHI='" + txtIsEmriTarihi.Text + "',TESLIM_TARIHI='" + txtTeslimTarihi.Text + "',DURUM='E' WHERE ISEMRİ_NO='" + txtIsEmriNo.Text + "' ,", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    sipariskalemibitirme();
+                    temizle();
+                    txtIsEmriNo.Text = "";
+                    isemrilistesinicekme();
+                }
+               
+
+            }
+            else
+            {
+                if (rbYeni.Checked==true)
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMA,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('"+txtIsEmriNo.Text+"','"+txtStokKodu.Text+"','"+txtStokAdi.Text+"','"+txtIsEmriAciklama.Text+"','"+txtIsEmriTarihi.Text+"','"+txtTeslimTarihi.Text+"','"+txtSiparisNo.Text+"','"+txtMiktar.Text.Replace(',','.')+"','"+txtKalemId.Text+"','Y') ",conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    sipariskalemiacma();
+                    temizle();
+                    txtSiparisNo.Text = "";
+                    isemrilistesinicekme();
+                }
+                else
+                {
+                    conn.Open();
+                    SqlCommand sorgu1 = new SqlCommand("INSERT INTO TBL_ISEMRI(ISEMRİ_NO,STOK_KODU,STOK_ADI,ISEMRI_ACIKLAMA,ISEMRI_TARIHI,TESLIM_TARIHI,SIPARIS_NO,MIKTAR,SIPKALEM_ID,DURUM) VALUES ('" + txtIsEmriNo.Text + "','" + txtStokKodu.Text + "','" + txtStokAdi.Text + "','" + txtIsEmriAciklama.Text + "','" + txtIsEmriTarihi.Text + "','" + txtTeslimTarihi.Text + "','" + txtSiparisNo.Text + "','" + txtMiktar.Text.Replace(',', '.') + "','" + txtKalemId.Text + "','E') ", conn);
+                    sorgu1.ExecuteNonQuery();
+                    conn.Close();
+                    sipariskalemibitirme();
+                    temizle();
+                    txtSiparisNo.Text = "";
+                    isemrilistesinicekme();
+                }
+            }
+        }
+
+        private void FrmIsEmri_Activated(object sender, EventArgs e)
+        {
+            if (isemrix=="siparis")
+            {
+                txtKalemId.Text = FrmIsEmriSiparisleri.kalemid;
+                if (txtKalemId.Text=="")
+                {
+
+                }
+                else
+                {
+                    siparisnovemiktaraulasma();
+                    txtMiktar.Enabled = false;
+                }
             }
         }
     }
