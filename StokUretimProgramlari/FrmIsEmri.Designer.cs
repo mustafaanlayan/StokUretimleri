@@ -379,6 +379,7 @@ namespace StokUretimProgramlari
             // 
             // txtMiktar
             // 
+            this.txtMiktar.EditValue = "0,00";
             this.txtMiktar.Location = new System.Drawing.Point(390, 153);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
