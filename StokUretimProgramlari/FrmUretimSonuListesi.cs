@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace StokUretimProgramlari
 {
-    public partial class FrmUretimSonuKayitlari : Form
+    public partial class FrmUretimSonuListesi : Form
     {
-        public FrmUretimSonuKayitlari()
+        public FrmUretimSonuListesi()
         {
             InitializeComponent();
-        }
-
-        private void sbtnUretimSonuListesi_Click(object sender, EventArgs e)
-        {
-            FrmUretimSonuListesi frm = new FrmUretimSonuListesi();
-            frm.Show();
         }
     }
 }
