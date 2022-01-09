@@ -59,6 +59,9 @@ namespace StokUretimProgramlari
             txtStokKodu.Enabled=false;
             txtMiktar.Enabled=false;    
             txtSiparisNo.Enabled=false;
+            sbtnIsEmriListesi.Enabled=false;
+            btnSiparisListesi.Enabled=false;
+
         }
         string x2 = "0";
         void stokkartıkontrol()
@@ -142,10 +145,13 @@ namespace StokUretimProgramlari
             txtSiparisNo.Text = "";
             txtStokAdi.Text = "";
             txtTeslimTarihi.Text = "";
+            txtStokKodu.Text = "";
             txtStokKodu.Enabled = true;
             txtMiktar.Enabled = true;
             txtSiparisNo.Enabled = true;
             rbYeni.Checked=true;
+            sbtnIsEmriListesi.Enabled = true;
+            btnStokListesi.Enabled = true;
         }
 
         private void sbtnIsEmriListesi_Click(object sender, EventArgs e)
@@ -168,6 +174,7 @@ namespace StokUretimProgramlari
         {
             gridView1.OptionsBehavior.Editable=false;
             isemrilistesinicekme();
+            txtMiktar.Text = "0,00";
         }
 
         private void txtIsEmriNo_Leave(object sender, EventArgs e)
@@ -332,6 +339,8 @@ namespace StokUretimProgramlari
         {
             temizle();
             txtIsEmriNo.Text = "";
+            txtStokKodu.Text = "";
+            txtIsEmriNo.Focus();
         }
 
         private void btnStokListesi_Click(object sender, EventArgs e)

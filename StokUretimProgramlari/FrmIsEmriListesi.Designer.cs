@@ -112,6 +112,7 @@ namespace StokUretimProgramlari
             this.txtStokKodu.Name = "txtStokKodu";
             this.txtStokKodu.Size = new System.Drawing.Size(143, 20);
             this.txtStokKodu.TabIndex = 2;
+            this.txtStokKodu.TextChanged += new System.EventHandler(this.txtStokKodu_TextChanged);
             // 
             // labelControl4
             // 
@@ -131,6 +132,7 @@ namespace StokUretimProgramlari
             this.txtIsEmriNo.Name = "txtIsEmriNo";
             this.txtIsEmriNo.Size = new System.Drawing.Size(143, 20);
             this.txtIsEmriNo.TabIndex = 2;
+            this.txtIsEmriNo.TextChanged += new System.EventHandler(this.txtIsEmriNo_TextChanged);
             // 
             // labelControl3
             // 
@@ -161,6 +163,7 @@ namespace StokUretimProgramlari
             this.txtStokAdi.Name = "txtStokAdi";
             this.txtStokAdi.Size = new System.Drawing.Size(142, 20);
             this.txtStokAdi.TabIndex = 3;
+            this.txtStokAdi.TextChanged += new System.EventHandler(this.txtStokAdi_TextChanged);
             // 
             // labelControl2
             // 
@@ -180,6 +183,7 @@ namespace StokUretimProgramlari
             this.txtSiparisNo.Name = "txtSiparisNo";
             this.txtSiparisNo.Size = new System.Drawing.Size(142, 20);
             this.txtSiparisNo.TabIndex = 3;
+            this.txtSiparisNo.TextChanged += new System.EventHandler(this.txtSiparisNo_TextChanged);
             // 
             // FrmIsEmriListesi
             // 
