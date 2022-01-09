@@ -39,31 +39,31 @@
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMiktar = new DevExpress.XtraEditors.TextEdit();
+            this.txtStokAdi = new DevExpress.XtraEditors.TextEdit();
+            this.txtSiparisNo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMusteriAdi = new DevExpress.XtraEditors.TextEdit();
+            this.txtMusteriKodu = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSipKalem = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtStokKodu = new DevExpress.XtraEditors.TextEdit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFisNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtIsEmriNo.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSiparisNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMusteriAdi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMusteriKodu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSipKalem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokKodu.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -166,20 +166,20 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textEdit6);
-            this.groupBox2.Controls.Add(this.textEdit4);
-            this.groupBox2.Controls.Add(this.textEdit1);
+            this.groupBox2.Controls.Add(this.txtMiktar);
+            this.groupBox2.Controls.Add(this.txtStokAdi);
+            this.groupBox2.Controls.Add(this.txtSiparisNo);
             this.groupBox2.Controls.Add(this.labelControl8);
             this.groupBox2.Controls.Add(this.labelControl5);
             this.groupBox2.Controls.Add(this.labelControl1);
             this.groupBox2.Controls.Add(this.labelControl9);
             this.groupBox2.Controls.Add(this.labelControl6);
-            this.groupBox2.Controls.Add(this.textEdit7);
-            this.groupBox2.Controls.Add(this.textEdit5);
+            this.groupBox2.Controls.Add(this.txtMusteriAdi);
+            this.groupBox2.Controls.Add(this.txtMusteriKodu);
             this.groupBox2.Controls.Add(this.labelControl4);
-            this.groupBox2.Controls.Add(this.textEdit3);
+            this.groupBox2.Controls.Add(this.txtSipKalem);
             this.groupBox2.Controls.Add(this.labelControl3);
-            this.groupBox2.Controls.Add(this.textEdit2);
+            this.groupBox2.Controls.Add(this.txtStokKodu);
             this.groupBox2.Location = new System.Drawing.Point(40, 167);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(255, 275);
@@ -187,29 +187,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İş Emri Detay Bilgiler";
             // 
-            // textEdit6
+            // txtMiktar
             // 
-            this.textEdit6.Enabled = false;
-            this.textEdit6.Location = new System.Drawing.Point(129, 168);
-            this.textEdit6.Name = "textEdit6";
-            this.textEdit6.Size = new System.Drawing.Size(91, 20);
-            this.textEdit6.TabIndex = 2;
+            this.txtMiktar.Enabled = false;
+            this.txtMiktar.Location = new System.Drawing.Point(129, 168);
+            this.txtMiktar.Name = "txtMiktar";
+            this.txtMiktar.Size = new System.Drawing.Size(91, 20);
+            this.txtMiktar.TabIndex = 2;
             // 
-            // textEdit4
+            // txtStokAdi
             // 
-            this.textEdit4.Enabled = false;
-            this.textEdit4.Location = new System.Drawing.Point(129, 102);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Size = new System.Drawing.Size(91, 20);
-            this.textEdit4.TabIndex = 2;
+            this.txtStokAdi.Enabled = false;
+            this.txtStokAdi.Location = new System.Drawing.Point(129, 102);
+            this.txtStokAdi.Name = "txtStokAdi";
+            this.txtStokAdi.Size = new System.Drawing.Size(91, 20);
+            this.txtStokAdi.TabIndex = 2;
             // 
-            // textEdit1
+            // txtSiparisNo
             // 
-            this.textEdit1.Enabled = false;
-            this.textEdit1.Location = new System.Drawing.Point(129, 36);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(91, 20);
-            this.textEdit1.TabIndex = 2;
+            this.txtSiparisNo.Enabled = false;
+            this.txtSiparisNo.Location = new System.Drawing.Point(129, 36);
+            this.txtSiparisNo.Name = "txtSiparisNo";
+            this.txtSiparisNo.Size = new System.Drawing.Size(91, 20);
+            this.txtSiparisNo.TabIndex = 2;
             // 
             // labelControl8
             // 
@@ -261,25 +261,25 @@
             this.labelControl6.TabIndex = 0;
             this.labelControl6.Text = "Müşteri Kodu :";
             // 
-            // textEdit7
+            // txtMusteriAdi
             // 
-            this.textEdit7.Enabled = false;
-            this.textEdit7.Location = new System.Drawing.Point(130, 240);
-            this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit7.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit7.Size = new System.Drawing.Size(89, 20);
-            this.textEdit7.TabIndex = 4;
+            this.txtMusteriAdi.Enabled = false;
+            this.txtMusteriAdi.Location = new System.Drawing.Point(130, 240);
+            this.txtMusteriAdi.Name = "txtMusteriAdi";
+            this.txtMusteriAdi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtMusteriAdi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtMusteriAdi.Size = new System.Drawing.Size(89, 20);
+            this.txtMusteriAdi.TabIndex = 4;
             // 
-            // textEdit5
+            // txtMusteriKodu
             // 
-            this.textEdit5.Enabled = false;
-            this.textEdit5.Location = new System.Drawing.Point(130, 201);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit5.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit5.Size = new System.Drawing.Size(89, 20);
-            this.textEdit5.TabIndex = 4;
+            this.txtMusteriKodu.Enabled = false;
+            this.txtMusteriKodu.Location = new System.Drawing.Point(130, 201);
+            this.txtMusteriKodu.Name = "txtMusteriKodu";
+            this.txtMusteriKodu.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtMusteriKodu.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtMusteriKodu.Size = new System.Drawing.Size(89, 20);
+            this.txtMusteriKodu.TabIndex = 4;
             // 
             // labelControl4
             // 
@@ -291,15 +291,15 @@
             this.labelControl4.TabIndex = 0;
             this.labelControl4.Text = "Sip Kalem Id :";
             // 
-            // textEdit3
+            // txtSipKalem
             // 
-            this.textEdit3.Enabled = false;
-            this.textEdit3.Location = new System.Drawing.Point(130, 135);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit3.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit3.Size = new System.Drawing.Size(89, 20);
-            this.textEdit3.TabIndex = 4;
+            this.txtSipKalem.Enabled = false;
+            this.txtSipKalem.Location = new System.Drawing.Point(130, 135);
+            this.txtSipKalem.Name = "txtSipKalem";
+            this.txtSipKalem.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtSipKalem.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtSipKalem.Size = new System.Drawing.Size(89, 20);
+            this.txtSipKalem.TabIndex = 4;
             // 
             // labelControl3
             // 
@@ -311,15 +311,15 @@
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Stok Kodu :";
             // 
-            // textEdit2
+            // txtStokKodu
             // 
-            this.textEdit2.Enabled = false;
-            this.textEdit2.Location = new System.Drawing.Point(130, 69);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.textEdit2.Size = new System.Drawing.Size(89, 20);
-            this.textEdit2.TabIndex = 4;
+            this.txtStokKodu.Enabled = false;
+            this.txtStokKodu.Location = new System.Drawing.Point(130, 69);
+            this.txtStokKodu.Name = "txtStokKodu";
+            this.txtStokKodu.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStokKodu.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtStokKodu.Size = new System.Drawing.Size(89, 20);
+            this.txtStokKodu.TabIndex = 4;
             // 
             // FrmUretimSonuKayitlari
             // 
@@ -341,13 +341,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtIsEmriNo.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMiktar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSiparisNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMusteriAdi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMusteriKodu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSipKalem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStokKodu.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,19 +365,19 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtIsEmriNo;
         private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtSiparisNo;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtStokKodu;
+        private DevExpress.XtraEditors.TextEdit txtStokAdi;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.TextEdit textEdit7;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit txtMusteriAdi;
+        private DevExpress.XtraEditors.TextEdit txtMusteriKodu;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraEditors.TextEdit txtSipKalem;
+        private DevExpress.XtraEditors.TextEdit txtMiktar;
         private DevExpress.XtraEditors.LabelControl labelControl8;
     }
 }
