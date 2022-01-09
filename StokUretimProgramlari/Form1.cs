@@ -40,5 +40,10 @@ namespace StokUretimProgramlari
             FrmIsEmri frm = new FrmIsEmri();
             frm.Show();
         }
+
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
