@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFisNo = new DevExpress.XtraEditors.TextEdit();
             this.btnSiparisTemizle = new DevExpress.XtraEditors.SimpleButton();
-            this.btnStokListesi = new DevExpress.XtraEditors.SimpleButton();
+            this.btnIsemrilistesi = new DevExpress.XtraEditors.SimpleButton();
             this.sbtnUretimSonuListesi = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -70,7 +70,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtFisNo);
             this.groupBox1.Controls.Add(this.btnSiparisTemizle);
-            this.groupBox1.Controls.Add(this.btnStokListesi);
+            this.groupBox1.Controls.Add(this.btnIsemrilistesi);
             this.groupBox1.Controls.Add(this.sbtnUretimSonuListesi);
             this.groupBox1.Controls.Add(this.labelControl7);
             this.groupBox1.Controls.Add(this.labelControl2);
@@ -98,14 +98,14 @@
             this.btnSiparisTemizle.Size = new System.Drawing.Size(29, 23);
             this.btnSiparisTemizle.TabIndex = 3;
             // 
-            // btnStokListesi
+            // btnIsemrilistesi
             // 
-            this.btnStokListesi.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.listbullets_16x16;
-            this.btnStokListesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnStokListesi.Location = new System.Drawing.Point(267, 67);
-            this.btnStokListesi.Name = "btnStokListesi";
-            this.btnStokListesi.Size = new System.Drawing.Size(32, 27);
-            this.btnStokListesi.TabIndex = 3;
+            this.btnIsemrilistesi.ImageOptions.Image = global::StokUretimProgramlari.Properties.Resources.listbullets_16x16;
+            this.btnIsemrilistesi.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnIsemrilistesi.Location = new System.Drawing.Point(267, 67);
+            this.btnIsemrilistesi.Name = "btnIsemrilistesi";
+            this.btnIsemrilistesi.Size = new System.Drawing.Size(32, 27);
+            this.btnIsemrilistesi.TabIndex = 3;
             // 
             // sbtnUretimSonuListesi
             // 
@@ -334,6 +334,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUretimSonuKayitlari";
             this.Text = "Üretim Sonu Kayıtları";
+            this.Load += new System.EventHandler(this.FrmUretimSonuKayitlari_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFisNo.Properties)).EndInit();
@@ -358,7 +359,7 @@
         private DevExpress.XtraEditors.SimpleButton btnKaydet;
         private DevExpress.XtraEditors.TextEdit txtFisNo;
         private DevExpress.XtraEditors.SimpleButton btnSiparisTemizle;
-        private DevExpress.XtraEditors.SimpleButton btnStokListesi;
+        private DevExpress.XtraEditors.SimpleButton btnIsemrilistesi;
         private DevExpress.XtraEditors.SimpleButton sbtnUretimSonuListesi;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl2;
